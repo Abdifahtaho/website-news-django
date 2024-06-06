@@ -14,7 +14,7 @@
             <p class="card-text">{{x.content|truncatewords:10}}</p>
            <p class="card-time ">{{x.created}}</p>
            <a href="{% url 'yupdate' x.id%}"class="btn btn-primary">Update</a>
-           <a href="{% url 'udelete' x.id%}"class="btn btn-primary">Delete</a>
+           <a href="{% url 'udelete' x.id%}"class="btn btn-danger">Delete</a>
     </div>
     </div>
 

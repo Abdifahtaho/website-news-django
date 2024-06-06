@@ -39,9 +39,10 @@
                 
                          
                 <div class="d-flex">
+                    {% if user.is_authenticated %}
                     <a href="{% url 'logout' %}" class="btn btn-sm btn-outline-warning text-dark ml-2 mr-2">LOG OUT</a>
-                    
-              
+                    {% endif %}
+             
             </div>
         </div>
 
@@ -58,7 +59,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="topNavbar">
                         <ul class="navbar-nav ml-auto">
-                           
+                            {% if user.is_authenticated %}
                             
                             <li class="nav-item">
                                 <a class="nav-link text-dark btn btn-sm btn-outline-success ml-2 mr-2" href="{% url 'home' %}">Home</a>
@@ -76,6 +77,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark btn btn-sm btn-outline-success ml-2 mr-2" href="{% url 'dis_contact' %}">D-Con</a>
                             </li>
+                            {% endif %}
                         </ul>
                     </div>
                 </nav>
