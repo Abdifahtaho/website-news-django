@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h4 class=" mt-5 bg-success text-white ">Bussiness</h4>
+<div class="row ">
+    
+   {% for post in bussiness_posts %}
+   <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+    <div class="card">
+    <h5 class="card-title"> 
+        <a href="bussiness" class="text-decoration-none">{{post.title}}</a>
+    </h5>
+    
+        <img src="{{post.image}}" alt="" class="card-img-top" width="200" height="200">
+    <div class="card-body"> 
+        <span Category: {{ post.category.name }}><span>
+            <p>{{ post.content }}</p>
+                
+        </div>
+    </div>
+
+</div>  
+       {%endfor%}
+    </div>
+    </div>
+
+</div>
+
+{% endblock%}

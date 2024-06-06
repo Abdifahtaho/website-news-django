@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE SOMALILAND TIMES</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'images/news.png' %}" type="image/x-icon">
+    <style>
+        .navbar-nav .nav-link {
+            font-family: sans-serif;
+        }
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .header-top, .header-bottom {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+        }
+        .header-bottom h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Top part of the header -->
+        <div class="header-top">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div>
+                    <span>Friday, june 5, 2024</span> | <span>Today's Paper</span>
+                </div>
+                
+                               
+                <div class="d-flex">
+                    <a href="{% url 'logout' %}" class="btn btn-sm btn-outline-warning text-dark ml-2 mr-2">LOG OUT</a>
+                    <a href="{% url 'userreg' %}" class="btn btn-sm btn-outline-warning text-dark ml-2 mr-2">SINGUP</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom part of the header -->
+        <div class="header-bottom">
+            <div class="container d-flex justify-content-between align-items-center">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="{% static 'images/news.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top mr-3">
+                    <h2>The Somaliland Times</h2>
+                </a>
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar" aria-controls="topNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="topNavbar">
+                        <ul class="navbar-nav ml-auto">
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-dark btn btn-sm btn-outline-success ml-2 mr-2" href="{% url 'home' %}">Home</a>
+                            </li>
+                           
+                            <li class="nav-item">
+                                <a class="nav-link text-dark btn btn-sm btn-outline-success ml-2 mr-2" href="{% url 'post_add' %}">Post</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark btn btn-sm btn-outline-success ml-2 mr-2" href="{% url 'contact'%}">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark btn btn-sm btn-outline-success ml-2 mr-2" href="{% url 'dis_contact' %}">D-Con</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Navigation bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{% url 'bussiness' %}">Ganacsiga</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{% url 'health' %}">Cafimadka</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{% url 'politacal' %}">Siyaasada</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{% url 'world-news' %}">Wararka Adunka</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{% url 'football' %}">Ciyaaraha</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center">
+                    <span class="text-white me-2">Dow</span>
+                    <span class="text-success">+0.25%</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

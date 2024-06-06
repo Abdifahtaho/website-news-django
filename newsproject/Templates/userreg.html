@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container bg-info">
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <h2 class="bg-success ">SINGUP FORM<h2>
+            <form action="#" method="post">
+                {% csrf_token %}
+            {{userreg|crispy}}
+            
+        <input type="submit" value="SIGNUP"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="container bg-light">
+    <div class="row justify-content-center align-text-center">
+        <div class="col-7">
+            <h2 class="bg-info ">LOGIN FORM<h2>
+            <form action="#" method="post">
+                {% csrf_token %}
+            {{loginform|crispy}}
+            
+        <input type="submit" class="btn btn-primary" value="SIGN IN"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
