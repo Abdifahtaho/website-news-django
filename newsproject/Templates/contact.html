@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-
+<div class="container d-flex justify-content-center ">
+    <div class="row border border-primary mt-4">
+        <div class="col"> 
 
 <h2>Create Contact</h2>
 <form method="POST" enctype="multipart/form-data">
@@ -9,7 +11,9 @@
     {{ form|crispy  }}
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
+</div>
+</div>
+</div>
 
 
 

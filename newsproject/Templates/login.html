@@ -4,15 +4,18 @@
 
 
 <div class="container bg-light">
-    <div class="row justify-content-center align-text-center">
-        <div class="col-7">
-            <h2 class="bg-info ">LOGIN FORM<h2>
+    <div class="row d-flex justify-content-center align-text-center mt-5">
+        <div class="col-4">
+            <h2 class="bg-info text-white text-center p-3 rounded">LOGIN FORM<h2>
+           
             <form action="#" method="post">
                 {% csrf_token %}
             {{loginform|crispy}}
             
-        <input type="submit" class="btn btn-primary" value="SIGN IN"/>
+        <input type="submit" class="btn btn-primary btn-block" value="SIGN IN"/>
+        <a href="{% url 'userreg' %}" class="btn btn-sm btn-outline-primary text-dark ml-2 mr-2">Don't have an account? Ragister Now</a>
             </form>
+            
         </div>
     </div>
 </div>

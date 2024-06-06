@@ -3,8 +3,9 @@
 
 {% block content %}
 <div class="container d-flex justify-content-center ">
-    <div class="row bg-primary">
+    <div class="row bg-info mt-4">
         <div class="col">  
+            <h1>Add Post</h1>
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form|crispy }}
