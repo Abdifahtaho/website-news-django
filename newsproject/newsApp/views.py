@@ -6,6 +6,7 @@ from newsApp.forms import ContactForm
 from django.shortcuts import redirect, render
 from django.db.models import Count
 from newsApp.models import contact
+from django.contrib.auth.decorators import login_required
 
 
 

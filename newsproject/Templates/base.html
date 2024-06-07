@@ -39,9 +39,9 @@
                 
                          
                 <div class="d-flex">
-                    {% if user.is_authenticated %}
-                    <a href="#" class="btn btn-sm btn-outline-warning text-dark ml-2 mr-2">LOG OUT</a>
-                    {% endif %}
+                   
+                    <a href="{% url 'users:logout' %}" class="btn btn-sm btn-outline-warning text-dark ml-2 mr-2">LOG OUT</a>
+                    
              
             </div>
         </div>
@@ -59,7 +59,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="topNavbar">
                         <ul class="navbar-nav ml-auto">
-                            {% if user.is_authenticated %}
+                            
                             
                             <li class="nav-item">
                                 <a class="nav-link text-dark btn btn-sm btn-outline-success ml-2 mr-2" href="{% url 'home' %}">Home</a>
@@ -77,7 +77,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark btn btn-sm btn-outline-success ml-2 mr-2" href="{% url 'dis_contact' %}">D-Con</a>
                             </li>
-                            {% endif %}
+                            
                         </ul>
                     </div>
                 </nav>
@@ -107,22 +107,34 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{% url 'football' %}">Ciyaaraha</a>
                         </li>
-                        
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'users:register' %}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'users:login' %}">Login</a>
+                    </li>
                     </ul>
                 </div>
-                <div class="d-flex align-items-center">
-                    <span class="text-white me-2">Dow</span>
-                    <span class="text-success">+0.25%</span>
-                </div>
+                
             </div>
+        </a> | 
+        <form class="logout" action="{% url 'users:logout' %}" method="post">
+            {% csrf_token %} 
+            <button class="logout-button" aria-label="User Logout" title="User Logout">👋</button>
+        </form>
+    
+        <a href="{% url 'users:register' %}">
+            <span role="img" aria-label="User Registration" title="User Registration">🚀</span>
+        </a> | 
+        <a href="{% url 'users:login' %}">
+            <span role="img" aria-label="User Login" title="User Login">🔏</span>
+        </a>
         </nav>
     </header>
 
     {% block content %}
-    <form class="logout" action="{% url 'users:logout' %}" method="post">
-        {% csrf_token %} 
-        <button class="logout-button" aria-label="User Logout" title="User Logout">👋</button>
-    </form>
+    
     {% endblock %}
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
