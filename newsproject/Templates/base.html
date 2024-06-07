@@ -40,7 +40,7 @@
                          
                 <div class="d-flex">
                     {% if user.is_authenticated %}
-                    <a href="{% url 'logout' %}" class="btn btn-sm btn-outline-warning text-dark ml-2 mr-2">LOG OUT</a>
+                    <a href="#" class="btn btn-sm btn-outline-warning text-dark ml-2 mr-2">LOG OUT</a>
                     {% endif %}
              
             </div>
@@ -119,6 +119,10 @@
     </header>
 
     {% block content %}
+    <form class="logout" action="{% url 'users:logout' %}" method="post">
+        {% csrf_token %} 
+        <button class="logout-button" aria-label="User Logout" title="User Logout">👋</button>
+    </form>
     {% endblock %}
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

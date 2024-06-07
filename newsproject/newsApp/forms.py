@@ -19,12 +19,3 @@ class ContactForm(forms.ModelForm):
         fields = ['fname', 'lname', 'phone', 'email', 'images', 'video']
 
 
-class CreateUserForm(UserCreationForm):
-    class Meta:
-        model = User
-        fields=['username','password']
-
-
-class LoginForm(AuthenticationForm):
-    username=forms.CharField(widget=forms.TextInput())
-    password=forms.CharField(widget=forms.PasswordInput())

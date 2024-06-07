@@ -1,4 +1,4 @@
-from newsApp.views import add_category, add_post,  home,base,health,bussiness,politacal,football,world_news,update,delete,c_contact,dis_contact,userreg,login,logout
+from newsApp.views import add_category, add_post,  home,base,health,bussiness,politacal,football,world_news,update,delete,c_contact,dis_contact
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
@@ -18,9 +18,7 @@ urlpatterns = [
     path('delete/<int:pk>',delete, name='udelete'),
     path('dis_contact',dis_contact, name='dis_contact'),
     path('contact/', c_contact, name='contact'),
-    path('userreg', userreg, name='userreg'),
-    path('', login, name='login'),
-    path('logout/', logout, name='logout'),
+    
     
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

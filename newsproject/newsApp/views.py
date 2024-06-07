@@ -6,18 +6,14 @@ from newsApp.forms import ContactForm
 from django.shortcuts import redirect, render
 from django.db.models import Count
 from newsApp.models import contact
-from newsApp.forms import CreateUserForm
-from newsApp.forms import LoginForm
-from django.contrib.auth.models import auth
-from django.contrib.auth import authenticate,login as auth_login,logout
-from django.contrib.auth.decorators import login_required
+
 
 
 from newsApp.models import Post, category
 
 # Create your views here.
 
-@login_required(login_url="login")
+
 def home(request):
     ps=Post.objects.order_by('-id')
     context={"post":ps}
@@ -110,34 +106,4 @@ def dis_contact(request):
     return render(request, 'dis_contact.html', {'contacts': contacts})
 
 
-def userreg(request):
-    if request.method == 'POST':
-        uform = CreateUserForm(request.POST)
-        if uform.is_valid():
-            uform.save()
-            return redirect('login')
-    else:
-        uform = CreateUserForm()
-    
-    context = {'userreg': uform}  
-    return render(request, 'userreg.html', context)
 
-def login(request):
-    formss = LoginForm()
-    if request.method == 'POST':  # Note that 'POST' should be all uppercase
-        formss = LoginForm(request, data=request.POST)
-        if formss.is_valid():
-            username = formss.cleaned_data.get('username')
-            password = formss.cleaned_data.get('password')
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                auth_login(request, user)
-                return redirect('home')
-            
-    context = {'loginform': formss}  
-    return render(request, 'login.html', context) 
-
-
-def logout(request):
-    
-    return redirect('login')
