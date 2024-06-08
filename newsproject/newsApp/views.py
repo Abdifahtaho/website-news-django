@@ -24,7 +24,7 @@ def base(request):
 
     return render(request,'base.html')
 
-
+@login_required(login_url="/users/login")
 def add_category(request):
     if request.method == 'POST':
         form = CategoryForm(request.POST)
