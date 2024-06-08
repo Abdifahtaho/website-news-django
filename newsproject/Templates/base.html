@@ -38,12 +38,7 @@
                 </div>
                 
                          
-                <div class="d-flex">
-                   
-                    <a href="{% url 'users:logout' %}" class="btn btn-sm btn-outline-warning text-dark ml-2 mr-2">LOG OUT</a>
-                    
-             
-            </div>
+              
         </div>
 
         <!-- Bottom part of the header -->
@@ -54,7 +49,7 @@
                     <h2>The Somaliland Times</h2>
 
                 </a>
-                {% if user.is_authenticated %} |
+                
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar" aria-controls="topNavbar" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -109,31 +104,27 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{% url 'football' %}">Ciyaaraha</a>
                         </li>
+                        
                     
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{% url 'users:register' %}">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{% url 'users:login' %}">Login</a>
-                    </li>
+                   
                     </ul>
                 </div>
                 
             </div>
         </a>
-         
+        
         <form class="logout" action="{% url 'users:logout' %}" method="post">
             {% csrf_token %} 
             <button class="logout-button" aria-label="User Logout" title="User Logout">👋</button>
         </form>
-       {% else %}
+     
         <a href="{% url 'users:register' %}">
             <span role="img" aria-label="User Registration" title="User Registration">🚀</span>
         </a> | 
         <a href="{% url 'users:login' %}">
             <span role="img" aria-label="User Login" title="User Login">🔏</span>
         </a>
-        {% endif %}
+     
         </nav>
 
 

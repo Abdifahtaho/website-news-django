@@ -22,7 +22,7 @@ def login_view(request):
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
             else:
-                return redirect("users:login")
+                return redirect("home")
     else: 
         form = AuthenticationForm()
     return render(request, "users/login.html", { "form": form })
