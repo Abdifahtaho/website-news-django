@@ -35,13 +35,13 @@ def add_category(request):
         form = CategoryForm()
     return render(request, 'category_form.html', {'form': form})
 
-@login_required(login_url="/users/login/")
+
 def add_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('/posts/add')
+            return redirect('home')
     else:
         form = PostForm()
     return render(request, 'post_form.html', {'form': form})
@@ -85,13 +85,13 @@ def update(request,pk):
         form=PostForm(request.POST ,instance=obj1)
         if form.is_valid():
             form.save()
-            return redirect('/home')
+            return redirect('home')
     return render(request,'update.html',{'for':form})
     
 def delete(request,pk):
     obj2=Post.objects.get(pk=pk)
     obj2.delete()
-    return redirect('/home')
+    return redirect('home')
 
 
 @login_required(login_url="/users/login/")
