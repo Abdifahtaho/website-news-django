@@ -14,11 +14,12 @@ from newsApp.models import Post, category
 
 # Create your views here.
 
-
+@login_required(login_url="/users/login/")
 def home(request):
     ps=Post.objects.order_by('-id')
     context={"post":ps}
     return render(request,'index.html',context=context)
+
 
 def base(request):
 
