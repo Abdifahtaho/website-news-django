@@ -2,14 +2,14 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="container d-flex justify-content-center ">
-    <div class="row border border-primary mt-4">
+    <div class="row border border-primary mt-4 mb-4">
         <div class="col"> 
 
 <h2>Create User</h2>
 <form class="form-with-validation" action="/users/register/" method="post">
     {% csrf_token %}
     {{ form|crispy}}
-    <button class="form-submit">Submit</button>
+    <button class="btn btn-dark text-white btn-block">Create User</button>
 </form> 
 </div>
 </div>
