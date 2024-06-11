@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="container d-flex justify-content-center ">
-    <div class="row bg-info mt-4">
+    <div class="row bg-info mt-4 mb-4">
         <div class="col"> 
 
 
@@ -10,7 +10,7 @@
     <form method="post">
         {% csrf_token %}
         {{ form|crispy }}
-        <button type="submit" class="btn btn-dark text-white btn-block">Save</button>
+        <button type="submit" class="btn btn-dark text-white btn-block">Create Category</button>
     </form>
 </div>
 </div>
