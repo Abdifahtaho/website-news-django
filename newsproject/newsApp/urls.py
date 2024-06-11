@@ -2,13 +2,14 @@ from newsApp.views import add_category, add_post,  home,base,health,bussiness,po
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+ 
 
 urlpatterns = [
     path('',home,name='home' ),
     path('base/',base,name='base' ),
     path('categories/add/', add_category, name='category_add'),
     
-    path('posts/add/', add_post, name='post_add'),
+    path('posts/add', add_post, name='post_add'),
     path('health', health, name='health'),
     path('bussiness', bussiness, name='bussiness'),
     path('politacal', politacal, name='politacal'),

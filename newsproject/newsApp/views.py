@@ -7,7 +7,7 @@ from django.shortcuts import redirect, render
 from django.db.models import Count
 from newsApp.models import contact
 from django.contrib.auth.decorators import login_required
-
+from django.utils.text import slugify
 
 
 from newsApp.models import Post, category
@@ -35,12 +35,14 @@ def add_category(request):
         form = CategoryForm()
     return render(request, 'category_form.html', {'form': form})
 
-
+@login_required(login_url="/users/login/")
 def add_post(request):
     if request.method == 'POST':
+       
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            
             return redirect('home')
     else:
         form = PostForm()
